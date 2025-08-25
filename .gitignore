@@ -1,0 +1,25 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# SQLite database files
+*.sqlite
+*.db
+
+# GeoJSON outputs
+*.geojson
+
+# Environment files
+.env
+venv/
+ENV/
+env/
+.venv/
+
+# OS / Editor specific
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
