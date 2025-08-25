@@ -1,25 +1,22 @@
 ```markdown
-# 🌍 OpenGeo Project
+# 🌍 OpenGeo Project  
+**Geocoding + Mapping with Python & Leaflet.js**
 
-An interactive **Geocoding + Mapping** project built in Python & Leaflet.js.  
-It reads addresses, geocodes them, stores results in SQLite, exports data into **GeoJSON**, and visualizes locations on a web-based interactive map.  
-
-This project is adapted and extended from **Dr. Charles Severance (“Dr. Chuck”) Python for Everybody course**.
+The **OpenGeo Project** is an interactive geocoding and mapping tool that combines Python for data processing with Leaflet.js for visualization. It allows users to convert addresses into geographic coordinates, store results in an SQLite database, export data into GeoJSON (compatible with GIS tools like QGIS, Mapbox, Leaflet), and visualize results on an interactive web map with marker clustering. This project is adapted and extended from Dr. Charles Severance’s (“Dr. Chuck”) *Python for Everybody* course.
 
 ---
 
-## ⚡ Features
-- 🗺️ Convert addresses into geographic coordinates
-- 📦 Store results in SQLite for persistence
-- 🌐 Export location data as GeoJSON (compatible with QGIS, Mapbox, Leaflet)
-- 📍 Visualize results with **Leaflet.js** & **Marker Clustering**
-- 🔎 Search functionality for easy navigation
-- 🔒 Clean separation of **data processing (Python)** and **map visualization (HTML/JS)**
+## ⚡ Key Features
+- 🗺️ Convert addresses into latitude/longitude using geocoding
+- 💾 Store results persistently in SQLite
+- 🌐 Export results to GeoJSON for GIS compatibility
+- 📍 Interactive visualization using Leaflet.js and marker clustering
+- 🔎 Search and navigate across mapped locations
+- 🔒 Clear separation between Python data processing and HTML/JS visualization
 
 ---
 
 ## 📂 Project Structure
-
 ```
 
 opengeo-project/
@@ -37,99 +34,68 @@ opengeo-project/
 
 ---
 
-## 🛠️ Installation
-
-Clone the repository:
-
+## 🛠️ Installation and Requirements
+Clone the repository and install the dependencies:  
 ```bash
 git clone https://github.com/<your-username>/opengeo-project.git
 cd opengeo-project
+pip install -r requirements.txt
 ````
 
-Install dependencies:
+Requirements:
 
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## 🚀 Usage
-
-### 1. Load Addresses into SQLite
-
-Read addresses from `where.data` and fetch geocoded data:
-
-```bash
-python geoload.py --input where.data --db opengeo.sqlite --limit 200
-```
-
-* `--input` : Input file containing addresses
-* `--db` : SQLite database file
-* `--limit` : Max records to fetch
-
----
-
-### 2. Export Data to GeoJSON
-
-Convert database data into a `.geojson` file:
-
-```bash
-python geodump.py --db opengeo.sqlite --output where.geojson
-```
-
----
-
-### 3. Visualize on Map
-
-Open **index.html** in your browser to explore the map.
-
-* Zoom & pan across locations
-* Markers are clustered for readability
-* Click markers to view details
-
----
-
-## 📦 Requirements
-
-* Python 3.8
+* Python 3.8+
 * `requests` (for geocoding API calls)
 
-Install via:
+You can install manually with:
 
 ```bash
 pip install requests
 ```
 
-Or from `requirements.txt`:
+---
 
-```bash
-pip install -r requirements.txt
-```
+## 🚀 Usage Guide
+
+1. **Load Addresses into SQLite**
+   Use `geoload.py` to read addresses from `where.data` and fetch geocoded data:
+
+   ```bash
+   python geoload.py --input where.data --db opengeo.sqlite --limit 200
+   ```
+
+   Options:
+
+   * `--input` : Input file containing addresses
+   * `--db` : SQLite database file
+   * `--limit` : Max records to fetch
+
+2. **Export Data to GeoJSON**
+   Convert the stored results into a `.geojson` file:
+
+   ```bash
+   python geodump.py --db opengeo.sqlite --output where.geojson
+   ```
+
+3. **Visualize on Map**
+   Open `index.html` in your browser to explore the interactive map.
+   Features include zooming and panning, marker clustering for readability, and clickable markers to view details.
 
 ---
 
 ## 📌 Example Workflow
 
-1. Add a list of addresses in `where.data`
-2. Run `geoload.py` to fetch coordinates & save in `opengeo.sqlite`
-3. Run `geodump.py` to export data into `where.geojson`
-4. Open `index.html` to see results on an interactive map 🎉
+1. Add addresses to `where.data`
+2. Run `geoload.py` → store geocoded results in `opengeo.sqlite`
+3. Run `geodump.py` → export to `where.geojson`
+4. Open `index.html` → view results interactively 🎉
 
 ---
 
-## 🙏 Credits
+## 🙏 Credits and License
 
-This project is based on and inspired by **Dr. Charles Severance (“Dr. Chuck”)** from his *Python for Everybody* course.
-Extended with additional features like marker clustering and cleaner map visualization.
+This project is based on and inspired by **Dr. Charles Severance (“Dr. Chuck”)** from his *Python for Everybody* course, and extended with marker clustering and improved visualization.
 
----
-
-## 🌐 License
-
-MIT License — free to use, modify, and share.
+License: **MIT License** — free to use, modify, and share.
 
 ```
-
----
-
